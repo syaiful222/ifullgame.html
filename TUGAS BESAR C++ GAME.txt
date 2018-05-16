@@ -1,0 +1,265 @@
+#include <iostream>#include <stdio.h>
+#include <windows.h>
+#include <iomanip>
+#include <conio.h>
+using namespace std;
+char name[20];
+int j,k,manybuy[10][5],pem,kat,jgame[10];
+string pilkat[10],categori[10],gamedb[10][5],game[10][5];
+long int Price[10][5],total[10], total_Price[10],cost;
+char interface1()
+{
+    printf ("                 __                       __ \n");
+    printf ("                 __WELCOME TO GAMES PC OKE__ \n");
+    printf ("             -----------------------------------\n");
+    printf ("             || PROVIDES A VARIETY OF PC GAMES ||\n");
+    printf ("             -----------------------------------\n");
+    printf ("             ||            category            ||\n");
+    printf ("             ------------------------------------\n");
+    printf ("             ||             Action             ||\n");
+    printf ("             ||            Strategy            ||\n");
+    printf ("             ||              RPG               ||\n");
+    printf ("             ||              FPS               ||\n");
+    printf ("             ||            Adventure           ||\n");
+    printf ("             -----------------------------------\n");
+}
+char categori1()
+{
+    printf ("         ------------------------------------------\n");
+    printf ("         |                 ACTION                 |\n");
+    printf ("         ------------------------------------------\n");
+    printf ("         |Code    Game           |   Price        |\n");
+    printf ("         ------------------------------------------\n");
+    printf ("         [AS]  Alien shooter     | Rp.100.000     |\n");
+    printf ("         [ZS]  Zombie shooter    | Rp.150.000     |\n");
+    printf ("         [BC]  Battle City       | Rp.200.000     |\n");
+    printf ("         ------------------------------------------\n");
+}
+char categori2()
+{
+    printf ("         ------------------------------------------\n");
+    printf ("         |                STRATEGY                |\n");
+    printf ("         ------------------------------------------\n");
+    printf ("         |code    Game           |   Price        |\n");
+    printf ("         ------------------------------------------\n");
+    printf ("         [CV]  Civilization V    | Rp.200.000     |\n");
+    printf ("         [AE]  Age of empires III| Rp.250.000     |\n");
+    printf ("         [CE]  Company of heroes | Rp.520.000     |\n");
+    printf ("         -----------------------------------------\n");
+}
+char categori3()
+{
+    printf ("         ------------------------------------------\n");
+    printf ("         |                     RPG                |\n");
+    printf ("         ------------------------------------------\n");
+    printf ("         |code    Game           |   Price        |\n");
+    printf ("         ------------------------------------------\n");
+    printf ("         [DS]  Dark souls III    | Rp.200.000     |\n");
+    printf ("         [DD]  Dark siders II    | Rp.250.000     |\n");
+    printf ("         [FL]  Fallout 4         | Rp.50.000      |\n");
+    printf ("         -----------------------------------------\n");
+}
+char categori4()
+{
+    printf ("         ------------------------------------------\n");
+    printf ("         |                  FPS                   |\n");
+    printf ("         ------------------------------------------\n");
+    printf ("         |Code    Game          |     Price       |\n");
+    printf ("         ------------------------------------------\n");
+    printf ("         [CS] Counter strike    | Rp.500.000      |\n");
+    printf ("         [TF] Titanfall 2       | Rp.250.000      |\n");
+    printf ("         [CB] COD balck ops II  | Rp.550.000      |\n");
+    printf ("         -----------------------------------------\n");
+}
+char categori5()
+{
+    printf ("         ------------------------------------------\n");
+    printf ("         |                 Adventure              |\n");
+    printf ("         ------------------------------------------\n");
+    printf ("         |Code    Game          |   Price         |\n");
+    printf ("         ------------------------------------------\n");
+    printf ("         [GT] GTA V             | Rp.550.000      |\n");
+    printf ("         [SD] Sleeping dogs     | Rp.250.000      |\n");
+    printf ("         [WD] Watch dogs        | Rp.450.000      |\n");
+    printf ("         -----------------------------------------\n");
+}
+int input2()
+{
+     interface1();
+    cout <<"     Category to-"<<j+1<<endl;
+    cout <<"     Select a category :";
+    cin >>pilkat[j];
+         if (pilkat[j]=="action"||pilkat[j]=="ACTION" )
+    {
+        categori[j]="Action    ";
+        categori1();
+    }
+    else if (pilkat[j]=="strategy"||pilkat[j]=="STRETEGY")
+    {
+        categori[j]="strategi  ";
+        categori2();
+    }
+    else if (pilkat[j]=="rpg"||pilkat[j]=="RPG")
+    {
+        categori[j]="RPG       ";
+        categori3();
+    }
+    else if (pilkat[j]=="fps"||pilkat[j]=="FPS")
+    {
+        categori[j]="FPS       ";
+        categori4();
+    }
+    else if (pilkat[j]=="adventure"||pilkat[j]=="ADVENTURE")
+    {
+       categori[j]="Adventure ";
+        categori5();
+    }
+}
+int input3()
+{
+    cout <<"     game to-"<<k+1<<endl;
+    cout <<"     Enter the code of the purchased game :";
+    cin >>gamedb[j][k];
+    cout <<"     Many purchased :";
+    cin >>manybuy[j][k];
+if (gamedb[j][k]=="as"||gamedb[j][k]=="AS")
+    {
+        game[j][k]="Alien shooter      ";
+        Price [j][k]=100000;
+    }
+    else if (gamedb[j][k]=="zs"||gamedb[j][k]=="ZS")
+    {
+         game[j][k]="Zombie shooter     ";
+        Price [j][k]=150000;
+    }
+    else if (gamedb[j][k]=="bc"||gamedb[j][k]=="BC")
+    {
+         game[j][k]="Battle City        ";
+        Price [j][k]=200000;
+    }
+    else if (gamedb[j][k]=="cv"||gamedb[j][k]=="CV")
+    {
+         game[j][k]="Civilization V     ";
+        Price [j][k]=200000;
+    }
+    else if (gamedb[j][k]=="ae"||gamedb[j][k]=="AE")
+    {
+         game[j][k]="Age of empires III ";
+       Price [j][k]=250000;
+    }
+    else if(gamedb[j][k]=="ch"||gamedb[j][k]=="CH")
+    {
+        game[j][k]="Company of heroes  ";
+        Price [j][k]=520000;
+    }
+    else if (gamedb[j][k]=="ds"||gamedb[j][k]=="DS")
+     {
+        game[j][k]="Dark souls III     ";
+        Price [j][k]=200000;
+    }
+    else if (gamedb[j][k]=="dd"||gamedb[j][k]=="DD")
+    {
+        game[j][k]="Dark siders II     ";
+       Price [j][k]=250000;
+    }
+    else if (gamedb[j][k]=="fl"||gamedb[j][k]=="FL")
+    {
+        game[j][k]="Fallout 4          ";
+        Price [j][k]=520000;
+    }
+    else if (gamedb[j][k]=="cs"||gamedb[j][k]=="CS")
+    {
+        game[j][k]="Counter strike     ";
+        Price [j][k]=500000;
+    }
+    else if (gamedb[j][k]=="tf"||gamedb[j][k]=="TF")
+    {
+        game[j][k]="Titanfall 2        ";
+       Price [j][k]=250000;
+    }
+    else if (gamedb[j][k]=="cb")
+    {
+        game[j][k]="COD balck ops II   ";
+        Price [j][k]=550000;
+    }
+    else if (gamedb[j][k]=="gt"||gamedb[j][k]=="GT")
+    {
+        game[j][k]="GTA V              ";
+        Price [j][k]=550000;
+    }
+    else if (gamedb[j][k]=="sd"||gamedb[j][k]=="SD")
+    {
+        game[j][k]="Sleeping dogs      ";
+        Price [j][k]=250000;
+    }
+    else if (gamedb[j][k]=="wd"||gamedb[j][k]=="WD")
+    {
+        game[j][k]="Watch dogs         ";
+        Price [j][k]=450000;
+    }
+      total[j]=Price[j][k]*manybuy[j][k];
+    total_Price[j]+=total[j];
+}
+main()
+{
+for(int load=0;load<100;load++)
+    {
+    cout<<endl<<"                Loading . . . "<<load<<"%"<<endl;
+         cout <<"              Please wait . . .";
+ system("cls");
+        }
+        cout<<"                       LOADING COMPLETE"<<endl;
+        system ("pause");
+        system ("cls");
+    interface1();
+    cout <<"     Enter your name :";
+    gets(name);
+        cout <<"     How many categories of games purchased :";
+        cin >>kat;
+        for (j=0;j<kat;j++)
+        {
+             system("cls");
+            input2();
+            cout <<"     How many of the purchased game :";
+            cin >>jgame[j];
+            for (k=0;k<jgame[j];k++)
+            {
+                input3();
+            }
+    cost+= total_Price [j];
+        }
+        system ("cls");
+        interface1();
+    printf ("                       __           __ \n");
+    printf ("                       __GAME PC OKE__ \n");
+    cout <<"Name:"<<name;
+    cout <<endl;
+    printf ("------------------------------------\n");
+    printf ("-------------------------------------------------------------------------\n");
+    printf ("|   Categori  |          game           |    Price     |    Many Buy    |\n");
+    printf ("-------------------------------------------------------------------------\n");
+        for (j=0;j<kat;j++)
+           {
+               cout <<setiosflags(ios::left)<<setw(6)<<categori[j];
+          for (k=0;k<jgame[j];k++)
+          {
+                cout <<"    |    "<<game[j][k];
+                cout <<"  | "<<Price[j][k];
+                cout <<"       |      "<<manybuy[j][k];
+                cout <<"         |"<<endl;
+                cout <<"          ";
+          }
+          cout <<endl;
+ printf ("-------------------------------------------------------------------------\n");
+    }
+    cout <<endl;
+    printf ("=======================================================\n");
+    cout <<"Total fees to be paid  Rp."<<cost;
+    cout <<endl;
+    cout <<"=======================================================";
+    cout <<endl;
+    cout <<endl;
+    cout <<"                       THANK YOU FOR VISITING   ";
+    cout <<endl;
+getche();
+}
