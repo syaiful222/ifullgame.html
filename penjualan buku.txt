@@ -1,0 +1,97 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() 
+{
+ ulang :
+ int kategori, pilih;
+ int harga, pembayaran, kembalian, banyakBuku, kondisi = 0;
+  
+ cout << "Selamat Datang di sistem penjualan buku" << endl;  
+ cout << "Daftar Kategori Buku : " << endl;
+ cout << "1.Komputer" << endl;
+ cout << "2.Musik" << endl;
+ cout << "Silahkan Masukkan Kategori Buku : ";
+ cin >> kategori; 
+
+ system("cls");
+ if(kategori == 1) {
+  cout << "Komputer : " << endl;
+  cout << "1.Pemrograman C++" << endl;
+  cout << "2.Design Web" << endl;
+  cout << "Kategori Komputer : ";
+  cin >> pilih;  
+  if(pilih == 1) {   
+   harga = 70000;
+   cout << "\n====================" << endl;
+   beli :
+   cout << "Pemrograman C++ " << endl;
+   cout << "Harga : Rp. 70000 " << endl;
+   cout << "Banyaknya buku : ";
+   cin >> banyakBuku;
+   cout << "Beli : ";
+   cin >> pembayaran;
+
+   if(cin.fail()) {
+    system("cls");
+    cin.clear();
+    cin.ignore(numeric_limits <streamsize>::max(),'\n');
+    goto beli;
+   }
+
+   kondisi = 1;
+  }
+  else if(pilih == 2) 
+   cout << "Daftar Buku tidak tersedia" << endl;
+  else 
+   cout << "Masukkan pilihan dengan benar !" << endl;
+ }
+ else if(kategori == 2) 
+  cout << "Daftar Buku tidak tersedia !" << endl;    
+ else 
+  cout << "Masukkan pilihan dengan benar !" << endl; 
+
+ if(kondisi == 1) {
+  harga *= banyakBuku;
+  kembalian = pembayaran - harga;
+   
+  cout << "Harga Buku : " << harga << endl;
+  if(kembalian > 0) 
+   cout << "Uang yang dikembalikan : " << kembalian << endl;
+  else
+   cout << "Maaf uang tidak mencukupi !" << endl;
+ }
+
+ kembali:
+ char kembali[2];
+ if(!cin.fail())
+  cout << "Kembali ke menu utama <Y/N> ? ";
+
+ cin >> kembali;
+ if(!cin.fail()) {
+  if(strcmp(kembali, "Y") == 0) {
+   system("cls");
+   goto ulang;
+  }
+  else if(strcmp(kembali, "N") == 0) 
+   exit(EXIT_SUCCESS); 
+  else {
+   cout << "Masukkan pilihan dengan benar !" << endl; 
+   cin.clear();
+   cin.ignore();
+   goto kembali;
+  }
+ }
+
+ if(cin.fail()) {
+  cin.clear();
+  cin.ignore(numeric_limits <streamsize>::max(), '\n');
+  goto kembali;
+ }
+
+ cout << endl;
+ system("pause");
+ return 0;
+}
+
