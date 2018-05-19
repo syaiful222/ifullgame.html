@@ -1,0 +1,101 @@
+Source Code nya SBB :
+
+#include <iostream.h>
+#include <iomanip.h>
+#include <stdio.h>
+#include <conio.h>
+int total(int lm,int hrg,int pjk)
+{
+return hrg*lm+pjk;
+}
+main()
+{
+struct
+{
+char kode[3],jenis[20];
+int harga,lama,pajak;
+float diskon;
+}bis[10];
+char penyewa[20],tanggal[15];
+int i,banyak,totalbiayasewa,totalpembayaran;
+float totdiskon;
+clrscr();
+cout<<“Jumlah Sewa    = “;cin>>banyak;
+cout<<“Masukan Nama Penyewa    = “;gets(penyewa);
+cout<<“Tanggal Sewa            = “;gets(tanggal);
+for(i=1;i<=banyak;i++)
+{
+cout<<“Data Penyewa Ke- “<<i<<endl;
+cout<<“Masukan Kode Jenis      = “;cin>>bis[i].kode;
+cout<<“Masukan Lama Sewa       = “;cin>>bis[i].lama;cout<<“jam”<<endl;
+if(strcmpi(bis[i].kode,”SN”)==0)
+{
+strcpy(bis[i].jenis,”Sedan”);
+bis[i].harga=450000;
+bis[i].pajak=100000;
+}
+else if(strcmpi(bis[i].kode,”MB”)==0)
+{
+strcpy(bis[i].jenis,”MiniBus”);
+bis[i].harga=700000;
+bis[i].pajak=150000;
+}
+else if(strcmpi(bis[i].kode,”BS”)==0)
+{
+strcpy(bis[i].jenis,”Bis”);
+bis[i].harga=1000000;
+bis[i].pajak=200000;
+}
+else
+{
+strcpy(bis[i].jenis,”Salah Kode”);
+bis[i].harga=0;
+bis[i].pajak=0;
+}
+if(bis[i].lama>20)
+{
+bis[i].diskon=total(bis[i].lama,bis[i].harga,bis[i].pajak)*0.1;
+}
+else
+{
+bis[i].diskon=0;
+}
+}
+clrscr();
+cout<<“Daftar Penyewaan Mobil\n\n”;
+cout<<“\t\tPT.SAFETY TRANSFORTATION\n”;
+cout<<“============================================================\n\n”;
+cout<<“Nama Penyewa = “<<setiosflags(ios::left)<<setw(10)<<penyewa;
+cout<<“Tanggal Sewa    = “<<setiosflags(ios::left)<<setw(5)<<tanggal<<endl;
+cout<<“============================================================\n”;
+cout<<“No  Kode    Jenis      Diskon    Lama     Harga     Pajak     Total\n”;
+cout<<“============================================================\n”;
+for(i=1;i<=banyak;i++)
+{
+cout<<setiosflags(ios::left)<<setw(4)<<i;
+cout<<setiosflags(ios::left)<<setw(8)<<bis[i].kode;
+cout<<setiosflags(ios::left)<<setw(11)<<bis[i].jenis;
+cout<<setiosflags(ios::left)<<setw(10)<<bis[i].diskon;
+cout<<setiosflags(ios::left)<<setw(10)<<bis[i].lama;
+cout<<setiosflags(ios::left)<<setw(10)<<bis[i].harga;
+cout<<setiosflags(ios::left)<<setw(10)<<bis[i].pajak;
+cout<<setiosflags(ios::left)<<setw(5)<<total(bis[i].lama,bis[i].harga,bis[i].pajak);
+cout<<endl;
+}
+cout<<“============================================================\n\n”;
+totalbiayasewa=0;
+totdiskon=0;
+for(i=1;i<=banyak;i++)
+{
+totalbiayasewa=total(bis[i].lama,bis[i].harga,bis[i].pajak)+totalbiayasewa;
+totdiskon=bis[i].diskon+totdiskon;
+
+}
+
+totalpembayaran=totalbiayasewa-totdiskon;
+cout<<“\t\t\t    Total Biaya Sewa    =Rp “<<totalbiayasewa<<endl;
+cout<<“\t\t\t    Diskon              =Rp “<<totdiskon<<endl;
+cout<<“\t\t\t    Total Pembayarab    =Rp “<<totalpembayaran<<endl;
+getch();
+}
+
