@@ -1,0 +1,54 @@
+#include <stdio.h>
+#include <conio.h>
+#include <iostream.h>
+
+main()
+{
+char kode[3],*merk,ukuran,nm[20],no[13];
+long harga,jml,total,kembali,byr;
+
+cout<<"JAKET SERBA NYAMAN\n";
+cout<<"================================="<<endl;
+cout<<"Nama Pembeli:";gets(nm);
+gotoxy(35,3);
+cout<<"No.tlp\n";cin>>no;
+cout<<"================================="<<endl;
+cout<<"Pilihan kode jaket:\n";
+cout<<"1.untuk kode jaket eiger\n";
+cout<<"2.untuk kode jaket polo\n";
+cout<<"================================="<<endl;
+cout<<"Kode Jaket:";cin>>kode;
+cout<<"Ukuran[s/m/l]:";cin>>ukuran;
+cout<<"Jumlah Beli:";cin>>jml;
+
+if (kode)
+{
+merk= "Eiger";
+if (ukuran== 's'|| 'S')
+harga=150000;
+else if (ukuran== 'm'||'M')
+harga=220000;
+else if (ukuran== 'l'||'L')
+harga=250000;
+}
+else
+{
+merk= "Polo";
+if (ukuran== 's'|| 'S')
+harga=100000;
+else if (ukuran== 'm'||'M')
+harga=150000;
+else if (ukuran== 'l'||'L')
+harga=200000;
+}
+
+cout<<"Merek Barang:"<<merk<<endl;
+cout<<"Harga Barang:"<<harga<<endl;
+total=jml*harga;
+cout<<"Total Bayar:"<<total<<endl;
+cout<<"Bayar :";cin>>byr;
+kembali = byr-total;
+cout<<"Kembali:"<<kembali<<endl;
+cout<<"==================================="<<endl;
+getch();
+}
